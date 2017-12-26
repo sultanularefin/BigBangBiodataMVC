@@ -1,0 +1,52 @@
+﻿
+<h1 style="float:right;color:dimgrey">report name: biodata</h1>
+
+<table class="table">
+    <tr>
+        <td><b>ID:</b></td>
+        <td>@Model.userId</td>
+        <td><b>Name: </b></td>
+        <td>@Model.firstname </td>
+
+    </tr>
+    <tr>
+        <td><b>Date of Birth: </b></td>
+        <td>@Model.DOB</td>
+        <td><b>Expected Salary: </b></td>
+        <td>@Model.expected_salary</td>
+       
+
+    </tr>
+    <tr>
+        <td><b>Gender:</b></td>
+        @if (Model.gender == true)
+        {
+
+            <td>Male</td>
+        }
+        else
+        {
+            <td>Female</td>
+        }
+
+        <td><b>Address:</b></td>
+        <td>@Model.address</td>
+        
+       
+
+    </tr>
+    <tr>
+        <td><b>Email:</b></td>
+        <td>@Model.email</td>
+        <td><b>Mobile #: </b></td>
+        <td>@Model.mobileNo </td>
+     
+    </tr>
+
+    <tr>
+        
+        <td><b>Religion:</b></td>
+            <td>@Model.Religion_info.religionName</td>
+    </tr>
+
+</table>

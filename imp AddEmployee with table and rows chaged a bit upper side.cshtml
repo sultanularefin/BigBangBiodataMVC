@@ -1,0 +1,366 @@
+﻿@model BiodataArefin.EF.Employee
+
+@{
+    ViewBag.Title = "AddEmployee";
+    Layout = "~/Views/Shared/ArefinLayout.cshtml";
+}
+<link href="~/Content/divTableCSS.css" rel="stylesheet" />
+
+<style>
+    .btn {
+        /*margin-left:7px;
+        margin-right:7px;*/
+        border-left: 10px;
+    }
+
+    .topbuttonsDiv {
+        margin-bottom: 40px;
+    }
+</style>
+
+
+
+<h2>User Biodata</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+    <div class="row">
+
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-5 col-lg-6">
+            <label class="control-label col-md-2">User ID:</label>
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.userId, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled", @Value = "Auto" } })
+
+
+            </div>
+        </div>
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.firstname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.firstname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.firstname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.lastname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.lastname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lastname, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="clearfix"></div>
+
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control", @id = "datepicker1" } })
+                @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.expected_salary, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: auto" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.expected_salary, new { htmlAttributes = new { @class = "form-control input-sm pull-left", @id = "datepicker1" } })
+                @Html.ValidationMessageFor(model => model.expected_salary, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.expected_salary, new { htmlAttributes = new { @class = "control-label col-md-2", @style = "font-size:xx-small" } })
+            <div class="col-md-10">
+            @Html.EditorFor(model => model.expected_salary, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.expected_salary, "", new { @class = "text-danger" })
+            </div>
+            </div>*@
+
+        <div class="clearfix"></div>
+
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label class="control-label col-md-2">Religion:</label>
+
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.religionId, ViewBag.selectallReligions as IEnumerable<SelectListItem>, htmlAttributes: new { @class = "dropdown txt medium-input", @id = "course-time" })
+
+            </div>
+        </div>
+
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.genderId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.genderId, "", new { @class = "text-danger" })*@
+
+                @Html.RadioButtonFor(model => model.gender, true, new { @checked = "true" }) Male
+                @Html.RadioButtonFor(model => model.gender, false) Female
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.mobileNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mobileNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mobileNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+
+
+    <div class="form-group topbuttonsDiv" style="float:right">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save All" class="btn btn-danger" />
+        </div>
+    </div>
+
+}
+<style>
+    .table > tr > td {
+        width: 1%;
+        white-space: nowrap;
+        width: auto !important;
+    }
+
+    .table > tr > th {
+        width: 1%;
+        white-space: nowrap;
+    }
+</style>
+
+<h2>Educational Qualifications</h2>
+
+<div class="boxer">
+    <div class="box-row">
+        <!--Headings-->
+        <div class="box">@Html.DisplayName("Exam & department")</div>
+        <div class="box">@Html.DisplayName("Institute/ University & Board")</div>
+        <div class="box">@Html.DisplayName("Passing Year")</div>
+        <div class="box">@Html.DisplayName("Grade")</div>
+        <div class="box">@Html.DisplayName("Action")</div>
+
+    </div>
+    
+    <div id="dataRow">
+
+    </div>
+   
+    <!-- End of 'box-row' -->
+    <!-- Start of 'box-row' -->
+    <div class="box-row" id="inputRow">
+        <div class="box"><input type="text" id="Exam_department" value="" autocomplete="off" /></div>
+        <div class="box"><input type="text" id="Institute_University_Board" value="" autocomplete="off" /></div>
+
+        <div class="box center"><input type="text" id="PassingYear" value="" autocomplete="off" /></div>
+        <div class="box center"><input type="text" id="Grade" value="" autocomplete="off" /></div>
+        <div class="box center">
+            <button class="btn btn-success" id="addempdtls" onclick="Addjs();">Add</button>
+        </div>
+
+    </div>
+
+
+</div>
+
+@*<table id="dataTable"></table>*@
+
+<div class="clearfix"></div>
+@if (ViewBag.success == 1)
+            {
+
+    <h1 class="alert alert-success">
+        <strong>@ViewBag.Message</strong>
+    </h1>
+
+}
+
+@if (ViewBag.success == 0)
+            {
+    <h1 class="alert alert-danger">
+        <strong>@ViewBag.Message</strong>
+    </h1>
+}
+
+
+
+
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            $("#datepicker1").datepicker();
+        });
+        var tempEmpId = 99;
+
+
+
+        //$("#addempdtls").click(function () {
+
+        //    var Exam_department = document.getElementById("Exam_department").value;
+
+        //    var Institute_University_Board = document.getElementById("Institute_University_Board").value;
+
+        //    var PassingYear = document.getElementById("PassingYear").value;
+
+        //    var Grade = document.getElementById("Grade").value;
+
+        //    //importvalidationscripts();
+
+        //    console.log(Exam_department);
+        //});
+
+
+        function Addjs(sender, args) {
+
+
+            var Exam_department = document.getElementById("Exam_department").value;
+
+            var Institute_University_Board = document.getElementById("Institute_University_Board").value;
+
+            var PassingYear = document.getElementById("PassingYear").value;
+
+            var Grade = document.getElementById("Grade").value;
+
+
+            document.getElementById("Exam_department").value = "";
+
+            document.getElementById("Institute_University_Board").value = "";
+
+            document.getElementById("PassingYear").value = "";
+
+            document.getElementById("Grade").value = "";
+
+            //importvalidationscripts();
+
+            console.log(Exam_department);
+
+
+            if (parametersanitation(Exam_department)) {
+                //problem found.
+
+                alert("Please Add Exam & Department");
+                return;
+            }
+
+            else if (parametersanitation(Institute_University_Board)) {
+                alert("Please Add Institute/ University & Board");
+                return;
+            }
+
+            else if (parametersanitation(PassingYear)) {
+                alert("Please Add PassingYear");
+                return;
+            }
+
+            else if (parametersanitation(Grade)) {
+                alert("Please Add Grade");
+
+                return;
+            }
+            else {
+
+                $.ajax({
+                    method: "POST",
+                    //url: '/Task/getemployeeByProject?projectId=' + projectId + '&LoggerId=' + employeeinsession,
+                    url: '/Home/storeEmployeeDetailsByEmployeeID?tempEmpId=' + tempEmpId + '&Exam_department=' + Exam_department + '&Institute_University_Board=' + Institute_University_Board + '&PassingYear=' + PassingYear + '&Grade=' + Grade,
+
+
+                    success: function (jsondata) {
+
+                        var employeeDetailPopulate = "";
+
+                        //<div class="box-row" id="dataRow">
+                        jQuery.each(jsondata, function (index, value) {
+
+    
+                           
+
+                            employeeDetailPopulate = employeeDetailPopulate + firsttag +
+                                '<div class="box-row" id="dataRow"><div class="box">' + value.examORDepartment +
+                                '</div><div class="box">' +
+                                value.instituteUniBoard + '</div><div class="box">' +
+                                value.passingYear + '</div><div class="box">' + value.grade + '</div></div>';
+                        });
+
+                        // employeeDetailPopulate = '<table>' + employeeDetailPopulate + '</table>';
+
+                        console.log(employeeDetailPopulate);
+
+                        //document.getElementById("dataTable").innerHTML = '';
+
+                        //var rows = document.getElementById("QualityTables").rows.length;
+
+                        //console.log(rows);
+
+                        
+                        //jQuery('#dataTable').html = '';
+
+                        jQuery('#dataRow').html = employeeDetailPopulate;
+
+                    }
+
+                })
+
+
+            }
+        }
+
+        function parametersanitation(value) {
+
+
+            value = value.replace(/ /g, ''); //  white space sanitation
+
+
+            if (!value || value == "" || value.length == 0)
+                return true;
+        }
+
+    </script>
+    @*<script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.bootstrap.min.js"></script>*@
+}
+
+

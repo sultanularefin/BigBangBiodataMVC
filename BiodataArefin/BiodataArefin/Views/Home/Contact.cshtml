@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<style>
+    .boxer {
+        display: table;
+        border-collapse: collapse;
+    }
+
+        .boxer .box-row {
+            display: table-row;
+        }
+
+            .boxer .box-row:first-child {
+                font-weight: bold;
+            }
+
+        .boxer .box {
+            display: table-cell;
+            vertical-align: top;
+            border: 1px solid black;
+            padding: 5px;
+            font-family: monospace;
+        }
+
+        .boxer .ebay {
+            padding: 5px 1.5em;
+        }
+
+        .boxer .google {
+            padding: 5px 1.5em;
+        }
+
+        .boxer .amazon {
+            padding: 5px 1.5em;
+        }
+
+    .center {
+        text-align: center;
+    }
+
+    .right {
+        float: right;
+    }
+</style>
+
+
+
+<div class="boxer">
+    <div class="box-row">
+        <!--Headings-->
+        <div class="box">Exam &Aacute; Departmetn</div>
+        <div class="box">Institue/ University &Aacute; Borard</div>
+        <div class="box">Passing Year</div>
+        <div class="box">Grade</div>
+        <div class="box">Action</div>
+
+    </div>
+
+    <div class="box-row" id="dataRow">
+        <div class="box">Modern Web Development with IBM WebSphere (2014)</div>
+        <div class="box">9780133067033</div>
+        <div class="box center">WCM</div>
+        <div class="box center"></div>
+    </div>
+
+    <div class="box-row" id="dataRow">
+        <div class="box">ssc</div>
+        <div class="box">542345</div>
+        <div class="box">45123</div>
+        <div class="box">51</div>
+        <div class="box"><button class="btn btn-success" id="addempdtls" onclick="Addjs();">Edit(Not_IMplemented)</button></div>
+    </div>
+
+    <div class="box-row" id="dataRow">
+    <div class="box">psc</div>
+    <div class="box">dhadf</div>
+    <div class="box">12314</div>
+    <div class="box">41234</div>
+    <div class="box"><button class="btn btn-success" id="addempdtls" onclick="Addjs();">Edit(Not_IMplemented)</button></div>
+    </div>
+
+    <div class="box-row" id="dataRow"><div class="box">psc</div><div class="box">dhaak</div><div class="box">q41212</div><div class="box">4123</div><div class="box"><button class="btn btn-success" id="addempdtls" onclick="Addjs();">Edit(Not_IMplemented)</button></div></div>
+
+
+    <!-- End of 'box-row' -->
+    <!-- Start of 'box-row' -->
+    <div class="box-row" id="inputRow">
+        <div class="box"><input type="text" id="Exam_department" value="" autocomplete="off" /></div>
+        <div class="box"><input type="text" id="Institute_University_Board" value="" autocomplete="off" /></div>
+
+        <div class="box center"><input type="text" id="PassingYear" value="" autocomplete="off" /></div>
+        <div class="box center"><input type="text" id="Grade" value="" autocomplete="off" /></div>
+    </div>
+   
+   
+
+    
+</div>
