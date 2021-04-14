@@ -42,3 +42,9 @@ plugins-cache: C:\Users\Taxi\AppData\Local\NuGet\plugins-cache
 
 C:\Users\Taxi\PPP\2021\BigBangBiodataMVC\BiodataArefin>
 ```
+
+
+## packages file of nuget still present in github thus giving me dependabot allert:::
+
+## git rm -r --cached .
+
